@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  mongo-node-one:
+    container_name: mongo-node-one
+    image: mongo
+    restart: always
+    volumes:
+      - ./docker-compose:/scripts
+    ports:
+      - 28019:28019
+    command: mongod -f /scripts/mongod-command-one.conf
+  mongo-node-two:
+    container_name: mongo-node-two
+    image: mongo
+    restart: always
+    volumes:
+      - ./docker-compose:/scripts
+    ports:
+      - 28020:28020
+    command: mongod -f /scripts/mongod-command-two.conf
